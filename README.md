@@ -53,17 +53,20 @@ The model will be evaluated using Root Mean Squared Error (RMSE), Mean Absolute 
 
 ## Exploratory Data Analysis (EDA)
 <img width="583" alt="Screenshot 2024-09-29 at 20 46 53" src="https://github.com/user-attachments/assets/bebc29ea-1a91-445c-b708-341dbd15b560">
+
 As we can see from the graph above, SalePrice and Size (sqf) have a positive relationship, where a larger size corresponds to a higher SalePrice. Furthermore, the highest average SalePrice comes from the terraced hallway type, followed by mixed, and then corridor.
 
 
 ## Model Selection
 <img width="481" alt="Screenshot 2024-09-29 at 21 02 40" src="https://github.com/user-attachments/assets/d0f0f9e7-9ba1-420d-a63c-996f17c3e811">
+
 Although the RMSE decreases when outliers are excluded from the data, I chose to retain the original dataset because the outlier SalePrices reflect higher-class apartments. These apartments are generally terraced, situated within 0-5 minutes of the subway, and in proximity to Kyungbuk University Hospital. Excluding the outliers from the data may result in a dataset that is not representative of real-world conditions. For more details on how these elements contribute to elevated Sale Prices, please refer to the EDA section.
 
 The CatBoost model from the feature engineering experiment did not achieve a lower RMSE than the baseline model. Therefore, the best model remains the CatBoost from the baseline model.
 
 ## Feature Importance
 <img width="606" alt="Screenshot 2024-09-29 at 21 43 28" src="https://github.com/user-attachments/assets/f80c7abe-ddd1-4d8e-9a0c-9a53f45957dc">
+
 It has been proven that Size and HallwayType (terraced) are the two most important features in predicting SalePrice, which aligns with the analysis in the EDA. Other significant variables include the number of parking spaces (basement), YearBuilt, the number of facilities in the apartment, Electronic Toll Collection (ETC), proximity to the Kyungbuk University Hospital subway station, the number of public offices, and nearby universities.
 
 These factors significantly influence apartment pricing in Daegu.
