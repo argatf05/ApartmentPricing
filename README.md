@@ -1,4 +1,4 @@
-# ApartmentPricing
+# Predicting Apartment Pricing in Daegu
 
 ## Business Problem Understanding
 ***Context***
@@ -35,3 +35,18 @@ Therefore, I will assist management in developing the best model for predicting 
 ***Metric Evaluation***
 
 The model will be evaluated using Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared. This project will primarily focus on RMSE, as apartment prices vary widely, ranging from lower-end to higher-end units. These price differences are crucial in predicting pricing accurately. RMSE is preferred because it places greater emphasis on larger errors by squaring them before averaging, making it more sensitive to outliers. In this project, large deviations in predicted prices could have significant financial consequences.
+
+## Variable Description
+| Variable | Description |
+|---- | ---- |
+| HallwayType | Type of Apartment (terraced, mixed, and corridor)|
+| TimeToSubway | Time needed to the nearest subway station (in range of: 0-5 min; 5-10 min; 10-15 min; 15-20 min; and no_bus_stop_nearby)|
+| SubwayStation | The name of the nearest subway station, there are 7 nearest subway and 1 no subway nearby|
+| N_FacilitiesNearBy(ETC) | The number of Electronic Tolls Collection facilities nearby (0, 1, 2, and 5) |
+| N_FacilitiesNearBy(PublicOffice) | The number of public office facilities nearby (0, 1, 2, 3, 4, 5, 6, 7) |
+| N_SchoolNearBy(University) | The number of universities nearby (0, 1, 2, 3, 4, 5) |
+| N_Parkinglot(Basement) | The number of the parking lot (0, 18, 56, 76, 79, 108, 181, 184, 203, 218, 400, 475, 524, 536, 605, 798, 930, 1174, 1270, 1321)|
+| YearBuilt | The year the apartment was built (1978, 1980, 1985, 1986, 1992, 1993, 1997, 2003, 2005, 2006, 2007, 2008, 2009, 2013, 2014, 2015)|
+| N_FacilitiesInApt | Number of facilities in the apartment (1, 2, 3, 4, 5, 7, 8, 9, 10)|
+| Size(sqf)| The apartment size (in square feet)|
+| SalePrice| The apartment price (Won)|
