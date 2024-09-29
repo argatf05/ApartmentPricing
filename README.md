@@ -50,3 +50,36 @@ The model will be evaluated using Root Mean Squared Error (RMSE), Mean Absolute 
 | N_FacilitiesInApt | Number of facilities in the apartment (1, 2, 3, 4, 5, 7, 8, 9, 10)|
 | Size(sqf)| The apartment size (in square feet)|
 | SalePrice| The apartment price (Won)|
+
+## Exploratory Data Analysis (EDA)
+<img width="583" alt="Screenshot 2024-09-29 at 20 46 53" src="https://github.com/user-attachments/assets/bebc29ea-1a91-445c-b708-341dbd15b560">
+As we can see from the graph above, SalePrice and Size (sqf) have a positive relationship, where a larger size corresponds to a higher SalePrice. Furthermore, the highest average SalePrice comes from the terraced hallway type, followed by mixed, and then corridor.
+
+
+## Model Selection
+<img width="481" alt="Screenshot 2024-09-29 at 21 02 40" src="https://github.com/user-attachments/assets/d0f0f9e7-9ba1-420d-a63c-996f17c3e811">
+Although the RMSE decreases when outliers are excluded from the data, I chose to retain the original dataset because the outlier SalePrices reflect higher-class apartments. These apartments are generally terraced, situated within 0-5 minutes of the subway, and in proximity to Kyungbuk University Hospital. Excluding the outliers from the data may result in a dataset that is not representative of real-world conditions. For more details on how these elements contribute to elevated Sale Prices, please refer to the EDA section.
+
+The CatBoost model from the feature engineering experiment did not achieve a lower RMSE than the baseline model. Therefore, the best model remains the CatBoost from the baseline model.
+
+## Feature Importance
+<img width="606" alt="Screenshot 2024-09-29 at 21 43 28" src="https://github.com/user-attachments/assets/f80c7abe-ddd1-4d8e-9a0c-9a53f45957dc">
+It has been proven that Size and HallwayType (terraced) are the two most important features in predicting SalePrice, which aligns with the analysis in the EDA. Other significant variables include the number of parking spaces (basement), YearBuilt, the number of facilities in the apartment, Electronic Toll Collection (ETC), proximity to the Kyungbuk University Hospital subway station, the number of public offices, and nearby universities.
+
+These factors significantly influence apartment pricing in Daegu.
+
+## Conclusion
+1. The best model for predicting apartment pricing in Daegu is the CatBoost model.
+2. The model was optimized using GridSearchCV, resulting in the following best parameter performance: depth: 4, iterations: 300, l2_leaf_reg: 7, learning_rate: 0.1.
+3. The model's accuracy is R²: 0.8530 and RMSE: 41,320.
+4. The potential benefit of using the CatBoost model is an 18.25% increase in sales, equivalent to over 150 million won.
+
+## Recommendation for Model
+The model may not be a good fit for predicting luxury apartments with higher-end pricing, as these apartments could be influenced by additional factors. Therefore, management should investigate other variables that may impact pricing and consider weighing these factors in their predictions. Additionally, the model requires more data to improve its accuracy in predicting higher-end apartments.
+
+## Recommendation for Business
+Management could potentially benefit from an 18.25% increase in sales by using the model. The analysis indicates that size is the most important feature in predicting apartment pricing; the **larger the size** of the apartment, the higher its predicted price. Hallway type is also significant, with **terraced types** expected to command higher prices than other types. This relationship is further explored in the EDA section.
+
+Consequently, management should focus on **expanding the size** of apartments and **incorporating terraced hallway** types to boost sales. Additionally, enhancing the **number of basement parking spaces** and available facilities would be beneficial. When constructing apartments, management should consider proximity to the **Kyungbuk University Hospital** subway station, public offices, and nearby universities, as these factors also influence apartment pricing.
+
+
